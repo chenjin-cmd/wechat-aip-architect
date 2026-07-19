@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>1200×630 宣传卡片模板</title>
+  <style>
+    :root{--ink:#15211f;--paper:#f5f1e8;--accent:#d35a36}*{box-sizing:border-box}body{margin:0;background:#1b2826;font-family:"PingFang SC","Noto Sans SC",sans-serif}.card{width:1200px;height:630px;overflow:hidden;position:relative;display:grid;grid-template-columns:57% 43%;background:var(--paper);color:var(--ink)}.copy{padding:68px 56px;position:relative;z-index:1}.tag{display:inline-block;padding:8px 12px;border:1px solid var(--ink);font-size:18px;font-weight:700;letter-spacing:.06em}.title{margin:28px 0 18px;font-family:"Songti SC","Noto Serif SC",serif;font-size:59px;line-height:1.14;letter-spacing:-.05em}.summary{max-width:560px;font-size:23px;line-height:1.65}.url{position:absolute;bottom:58px;color:var(--accent);font-size:18px;font-weight:700}.visual{position:relative;background:#d7c2a9}.visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.76) contrast(1.04)}.visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(245,241,232,.18),rgba(0,0,0,.08))}.credit{position:absolute;right:18px;bottom:14px;color:#fff;font-size:13px;z-index:2}@media(max-width:1200px){body{overflow:auto}.card{transform-origin:top left;transform:scale(calc(100vw / 1200));margin-bottom:calc(-630px + (630px * 100vw / 1200))}}
+  </style>
+</head>
+<body><section class="card"><div class="copy"><div class="tag" id="tag"></div><h1 class="title" id="title"></h1><p class="summary" id="summary"></p><div class="url" id="url"></div></div><div class="visual"><img id="image" alt=""><div class="credit" id="credit"></div></div></section><script>
+const promo={tag:'开源 Skill',title:'把公众号内容做成一套可复用的系统',summary:'定位、对标、选题、写作与 HTML 图文模板，集中放进一个开源知识包。',url:'github.com/chenjin-cmd/wechat-aip-architect',image:'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1200&q=85',image_alt:'电脑旁的手写计划',image_credit:'示例图：发布时替换为已授权素材',image_prompt:'生成一张横向 1200×630 的内容创作工作场景，纸质选题卡、电脑和光线，暖白与深绿配色，右侧留出视觉空间，无人物正脸、无品牌标识。'};
+const set=(id,v)=>document.getElementById(id).textContent=v;set('tag',promo.tag);set('title',promo.title);set('summary',promo.summary);set('url',promo.url);set('credit',promo.image_credit);const image=document.getElementById('image');image.src=promo.image;image.alt=promo.image_alt;document.body.dataset.imagePrompt=promo.image_prompt;
+</script></body></html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>公众号深度长文模板</title>
+  <style>
+    :root { --ink:#172321; --paper:#f7f3ea; --accent:#c4502f; --muted:#66706d; --line:#d9d2c4; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#ddd6c8; font-family:"PingFang SC","Noto Sans SC",sans-serif; }
+    main { width:min(760px,100%); margin:auto; background:var(--paper); padding:52px 44px 72px; }
+    .kicker { color:var(--accent); font-size:13px; font-weight:700; letter-spacing:.12em; }
+    h1 { margin:14px 0 16px; font-family:"Songti SC","Noto Serif SC",serif; font-size:42px; line-height:1.22; letter-spacing:-.04em; }
+    .dek { margin:0 0 28px; color:#43504d; font-size:18px; line-height:1.8; }
+    .meta { display:flex; gap:12px; flex-wrap:wrap; color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:14px; }
+    figure { margin:32px 0; }
+    figure img { display:block; width:100%; aspect-ratio:2/1; object-fit:cover; border-radius:3px; }
+    figcaption { padding-top:9px; color:var(--muted); font-size:12px; line-height:1.65; }
+    article { font-family:"Songti SC","Noto Serif SC",serif; font-size:18px; line-height:2; }
+    article p { margin:0 0 20px; }
+    h2 { margin:44px 0 16px; font-family:"PingFang SC","Noto Sans SC",sans-serif; font-size:24px; line-height:1.4; }
+    blockquote { margin:30px 0; padding:18px 22px; border-left:4px solid var(--accent); background:#eee7da; font-family:"PingFang SC","Noto Sans SC",sans-serif; font-size:17px; line-height:1.8; }
+    .image-note { margin:30px 0; padding:15px 18px; color:#43504d; background:#ebe4d6; font-family:"PingFang SC","Noto Sans SC",sans-serif; font-size:14px; line-height:1.7; }
+    .footer { margin-top:48px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; line-height:1.7; }
+    @media (max-width:600px) { main { padding:34px 22px 54px; } h1 { font-size:34px; } article { font-size:17px; } }
+  </style>
+</head>
+<body>
+  <main data-wechat-export-root>
+    <div class="kicker" id="kicker"></div>
+    <h1 id="title"></h1>
+    <p class="dek" id="dek"></p>
+    <div class="meta"><span id="author"></span><span id="date"></span><span id="readTime"></span></div>
+    <figure><img id="cover" class="cover" alt=""><figcaption id="coverCaption"></figcaption></figure>
+    <article id="body"></article>
+    <div class="footer">模板工作流参考 huashu-design（MIT）。发布前请替换示例文字、检查图片授权与公众号后台预览。</div>
+  </main>
+  <script>
+    const article = {
+      kicker: 'AI 内容系统 / 深度拆解', title: '别急着让 AI 写文章，先把内容系统搭起来',
+      dek: '一篇能持续带来关注的文章，往往从清楚的定位和选题判断开始。',
+      author: '作者：你的名字', date: '2026.07.13', readTime: '阅读约 6 分钟',
+      cover: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=85',
+      cover_alt: '桌面上的笔记本与笔记本电脑', cover_caption: '封面图示例。替换为与你的文章直接相关且已授权的图片。',
+      paragraphs: [
+        '很多人把内容创作理解成一个写作问题。真正卡住你的，通常是每次打开 AI 时都不知道该问什么。',
+        '先把目标读者、长期主题和可验证的经验写下来。选题从这些材料里长出来，文章才会有稳定的方向。',
+        '当你完成一篇对标拆解后，不要复制标题和句子。抽出它解决了谁的什么问题，再换成你亲自经历过的场景。'
+      ],
+      quote: 'AI 可以加快成稿，但不能替你决定：这篇文章为什么值得读。',
+      image_prompt: '生成一张横向 2:1 的真实工作场景照片：创作者在整理纸质选题卡片和电脑上的内容看板，自然窗光，暖白纸张，画面留出文字空间，无人物正脸，无品牌标识。'
+    };
+    const set = (id, value) => document.getElementById(id).textContent = value;
+    set('kicker', article.kicker); set('title', article.title); set('dek', article.dek); set('author', article.author); set('date', article.date); set('readTime', article.readTime);
+    const cover = document.getElementById('cover'); cover.src = article.cover; cover.alt = article.cover_alt; set('coverCaption', article.cover_caption);
+    const body = document.getElementById('body');
+    body.innerHTML = `<p>${article.paragraphs[0]}</p><h2>先把问题放在写作前面</h2><p>${article.paragraphs[1]}</p><div class="image-note"><strong>文内配图提示词：</strong>${article.image_prompt}</div><blockquote>${article.quote}</blockquote><h2>借结构，不借表达</h2><p>${article.paragraphs[2]}</p>`;
+  </script>
+  <script src="./export-wechat-inline.js"></script>
+  <script>window.WechatInlineExporter.addCopyButton(document.querySelector('[data-wechat-export-root]'));</script>
+</body>
+</html>

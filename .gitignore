@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# WorkBuddy project memory (not part of the published skill)
+.workbuddy/
+
+# Isolated feature worktrees
+.worktrees/
+
+# Node / Python dependency caches (if any local tooling added later)
+node_modules/
+__pycache__/
+*.pyc
+
+# Local editor / OS noise
+*.swp
+.idea/
+.vscode/
+
+# Local browser-rendering artifacts
+.playwright-cli/
